@@ -1,6 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Slider from 'react-slick';  // Import Slider from react-slick
 import './Home.css';
+import removeBgImage from './Removebg.png'; // Correctly imported image
+
+// Slider settings
+const sliderSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: true, // Add arrows for navigation
+};
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -20,22 +32,30 @@ const Home = () => {
 
   return (
     <div className="home">
-      <h1>Home Page</h1>
+      {/* Use the imported image */}
+      <img src={removeBgImage} alt="Home" className="home-image" />
 
-      <div className="about-us">
-        <h2>About Us</h2>
-        <p>Welcome to our store! We are dedicated to providing you with the best products and services. Our mission is to offer high-quality products at competitive prices. We hope you have a great shopping experience with us!</p>
+      <div className="product-container">
+      <div className="book-slider">
+  <div className="antenna-bulb"></div> {/* Antenna bulb */}
+  <Slider {...sliderSettings}>
+    {products.map((product) => (
+      <div key={product.id} className="product">
+        <video
+          src={product.video} // Assuming video URLs are stored in `product.video`
+          controls
+          className="product-video"
+          alt={product.name}
+        >
+          Your browser does not support the video tag.
+        </video>
       </div>
+    ))}
+  </Slider>
+</div>
 
-      <div className="product-list">
-        {products.map((product) => (
-          <div key={product.id} className="product">
-            <img src={product.image} alt={product.name} className="product-image" />
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
-            <p>${parseFloat(product.price).toFixed(2)}</p>
-          </div>
-        ))}
+
+      
       </div>
     </div>
   );

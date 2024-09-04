@@ -1,50 +1,80 @@
-/* Product.css */
-.product {
-    position: relative;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-   
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .product-image {
-    width: 100%;
-    border-radius: 5px;
-  }
-  
-  .product h2 {
-    margin: 10px 0;
-  }
-  
-  .product p {
-    margin: 5px 0;
-  }
-  
-  .add-to-cart-btn {
-   
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    outline: none;
-    transition: background-color 3.3s ease;
-  }
-  
-  /* Flying animation */
- /* Product.css */
+.product-container {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  gap: 10px; /* Adjust space between slider and description */
+  width: 80%; /* Adjust overall container width */
+  margin: 0 auto; /* Center container horizontally */
+}
 
- /* Product.css */
+.book-slider1 {
+  width: 100%; /* Full width within container */
+  max-width: 600px; /* Set a maximum width for smaller size */
+  position: relative;
+  overflow: hidden; /* Hide overflow to create book effect */
+  background-color: white;
+  border-radius: 5px; /* Rounded corners for a book-like appearance */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.product-description {
+  width: 100%; /* Full width within container */
+  max-width: 600px; /* Set a maximum width for smaller size */
+  border: 1px solid #ddd; /* Border around the description box */
+  padding: 15px; /* Reduce padding for a smaller look */
+  background-color: #f9f9f9;
+  text-align: center; /* Center text */
+}
+
+.product {
+  text-align: center;
+  position: relative; /* Ensure buttons and other elements are positioned relative to this container */
+}
+
+.product-image {
+  width: 100%; /* Adjust width to fit smaller size */
+  max-width: 100%; /* Adjust as needed */
+  height: auto;
+}
+
+.add-to-cart-btn {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 8px 16px; /* Adjust padding for smaller size */
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 14px; /* Reduce font size */
+}
+
+.add-to-cart-btn:hover {
+  background-color: #00b31bcb;
+}
+
 .flying-element {
-    position: absolute;
-    font-size: 30px; /* Adjust size as needed */
-    color: #ff0000; /* Red color for the heart */
-    transition: all 2.5s ease;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  
+  position: absolute;
+  font-size: 18px; /* Adjust font size for a smaller effect */
+  transition: all 1s ease;
+}
+
+/* Arrow styles */
+.slick-prev, .slick-next {
+  width: 30px; /* Reduce arrow size */
+  height: 30px; /* Reduce arrow size */
+  background: transparent; /* Transparent background */
+  border: none;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slick-prev {
+  left: 10px; /* Position left arrow */
+}
+
+.slick-next {
+  right: 10px; /* Position right arrow */
+}
+

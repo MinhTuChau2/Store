@@ -6,8 +6,12 @@ import Home from './Home';
 import Contact from './Contact';
 import Product from './Product';
 import Cart from './Cart';
-import { CartProvider } from './CartContext'; // Import the CartProvider
-import './App.css'; // Import your CSS file if you have one
+import { CartProvider } from './CartContext';
+import './App.css';
+import Checkout from './Checkout';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import FlowerBackground from './FlowerBackground'; // Import FlowerBackground
 
 const DropdownNavigation = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -47,9 +51,12 @@ function App() {
     <CartProvider>
       <Router>
         <div className="app">
+          <FlowerBackground /> {/* Add FlowerBackground here */}
           <header className="app-header">
             <div className="header-content">
+              <Link to="/" className="left-header">
               <h1 className="header-logo">Blüm</h1>
+              </Link>
               <nav className="header-nav">
                 <ul>
                   <li>
@@ -70,19 +77,16 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/product" element={<Product cartIconRef={cartIconRef} />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/checkout" element={<Checkout />} />
             </Routes>
           </main>
           <footer className="app-footer">
             <div className="footer-content">
               <p>&copy; Blüm. All rights reserved.</p>
-              <div className="footer-sponsors">
-                <h4>Our Sponsors:</h4>
-                {/* Add sponsor information here */}
-              </div>
               <div className="footer-contact">
                 <h4>Contact Us:</h4>
-                <p>Email: info@blum.com</p>
-                <p>Phone: (123) 456-7890</p>
+                <p>Email: blummtl@gmail.com</p>
+                <p>Phone: (514) 690-5124</p>
               </div>
             </div>
           </footer>

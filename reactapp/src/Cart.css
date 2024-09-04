@@ -1,4 +1,4 @@
-/* Cart.css */
+/* General Styles */
 .cart {
     padding: 20px;
     margin: 20px;
@@ -12,13 +12,13 @@
 }
 
 .cart-items {
-    
     flex-direction: column;
 }
 
 .cart-item {
-    
-   
+    display: flex; /* Use Flexbox to align items horizontally */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Place space between items */
     margin-bottom: 20px;
     border-bottom: 1px solid #ddd;
     padding-bottom: 10px;
@@ -31,6 +31,7 @@
 
 .cart-item-details {
     flex: 1;
+    margin-right: 20px; /* Add space between details and the button */
 }
 
 .cart-item-details h3 {
@@ -43,31 +44,55 @@
     margin-bottom: 10px;
 }
 
-.cart-item-details button {
-    background-color: #f44336;
-    color: white;
+/* Remove Button */
+.remove-button {
+    padding: 10px 15px; /* Adjust padding */
+    font-size: 16px; /* Adjust font size */
+    width: auto;
+    height: auto;
     border: none;
-    padding: 5px 10px;
-    cursor: pointer;
     border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.remove-button:hover {
+    background-color: #e60000;
+    transform: scale(0.95);
+}
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+    .cart-item {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .remove-button {
+        width: 100%; /* Make the button full width on mobile */
+        margin-top: 10px; /* Add space above the button */
+        padding: 10px; /* Ensure button padding is comfortable */
+        font-size: 18px; /* Slightly larger font size for readability */
+        text-align: center; /* Center the text within the button */
+    }
 }
 
 
-/* Cart.css */
+.checkout-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+  
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
 
-.remove-button {
- 
-    border: none; /* Remove default border */
-    /* Add padding for better button size */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Change cursor to pointer to indicate clickable */
-    font-size: 16px; /* Increase font size for better readability */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition effects */
-  }
-  
- 
-  .remove-button:active {
-    background-color: #e60000; /* Even darker red when button is pressed */
-    transform: scale(0.95); /* Slightly shrink button on press */
-  }
-  
+.checkout-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}

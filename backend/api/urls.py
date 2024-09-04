@@ -7,5 +7,6 @@ from .views import home
 urlpatterns = [
     path('', home),
     path('product/',include('api.product.urls')),
+    path('orders/',include('api.orders.urls')),
 ]
 
