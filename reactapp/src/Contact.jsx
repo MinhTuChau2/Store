@@ -9,7 +9,7 @@ const Contact = () => {
     email: '',
     message: '',
   });
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState(''); // State to hold the notification
   const navigate = useNavigate(); // Hook to navigate programmatically
 
   const handleChange = (e) => {
@@ -19,24 +19,25 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Form submitted!'); // Confirm form submission
+  
     try {
       const response = await axios.post('http://localhost:8000/api/contact/', formData);
+      console.log('API response:', response); // Confirm API request
+      window.location.href = '/'; // Redirect immediately
       if (response.status === 200) {
         setStatus('Your message has been sent successfully!');
+        console.log('Message sent successfully!');
         setFormData({ name: '', email: '', message: '' }); // Reset form
-        window.alert('Message sent! Redirecting to home page...');
-        
-        // Redirect to the home page after 2 seconds
-        setTimeout(() => {
-          navigate('/');
-        }, 2000);
       }
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error('Error sending message:', error); // Handle error
       setStatus('There was an error sending your message. Please try again.');
     }
   };
-
+  
+  
+  
   return (
     <div className="contact">
       <h1>Contact Us</h1>
@@ -75,6 +76,7 @@ const Contact = () => {
           />
         </div>
         <button type="submit">Send Message</button>
+        {/* Display the status message */}
         {status && <p className="status-message">{status}</p>}
       </form>
     </div>
