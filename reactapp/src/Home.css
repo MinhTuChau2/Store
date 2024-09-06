@@ -18,6 +18,22 @@ body {
   animation: moveAndScale 10s infinite alternate; /* Apply the animation */
 }
 
+
+/* Default styles for desktop */
+iframe {
+  width: 540px;
+  height: 315px;
+}
+
+/* Styles for mobile */
+@media only screen and (max-width: 768px) {
+  iframe {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+
 @keyframes moveAndScale {
   0% {
       transform: scale(1);

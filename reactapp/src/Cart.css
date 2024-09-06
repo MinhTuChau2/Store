@@ -61,6 +61,11 @@
     transform: scale(0.95);
 }
 
+
+
+
+
+
 /* Mobile Styles */
 @media (max-width: 600px) {
     .cart-item {
@@ -82,7 +87,7 @@
     display: block;
     width: 100%;
     padding: 15px;
-  
+    
     color: white;
     border: none;
     border-radius: 5px;

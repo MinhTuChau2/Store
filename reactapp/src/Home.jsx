@@ -43,8 +43,8 @@ const Home = () => {
               <div key={index} className="product">
                 {/* Each iframe in its own slide */}
                 <iframe
-                  width="560"
-                  height="315"
+                  width="200"
+                  height="200"
                   src={`https://www.youtube.com/embed/${index === 0 ? 'Ujb20kyR6So?si=Pxe-SyE5kUnTpEXh' : 'KuiwsY5smfU?si=MHOKvku8yxXhRSFf'}`}
                   title={`YouTube video player ${index}`}
                   frameBorder="0"

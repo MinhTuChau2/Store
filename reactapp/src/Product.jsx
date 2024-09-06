@@ -76,8 +76,8 @@ const Product = ({ cartIconRef }) => {
     const cartRect = cartIconElement.getBoundingClientRect();
 
     flyingElement.style.position = 'absolute';
-    flyingElement.style.top = `${productRect.top + window.scrollY + 420}px`;
-    flyingElement.style.left = `${productRect.left + window.scrollX + 250}px`;
+    flyingElement.style.top = `${productRect.top + window.scrollY + 300}px`;
+    flyingElement.style.left = `${productRect.left + window.scrollX + 150}px`;
 
     requestAnimationFrame(() => {
       flyingElement.style.top = `${cartRect.top + window.scrollY}px`;
