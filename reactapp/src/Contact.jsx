@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Assuming you're using react-router for navigation
 import './Contact.css'; // Assuming you have a CSS file for styling
 
 const Contact = () => {
@@ -9,6 +10,7 @@ const Contact = () => {
     message: '',
   });
   const [status, setStatus] = useState('');
+  const navigate = useNavigate(); // Hook to navigate programmatically
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,6 +24,12 @@ const Contact = () => {
       if (response.status === 200) {
         setStatus('Your message has been sent successfully!');
         setFormData({ name: '', email: '', message: '' }); // Reset form
+        window.alert('Message sent! Redirecting to home page...');
+        
+        // Redirect to the home page after 2 seconds
+        setTimeout(() => {
+          navigate('/');
+        }, 2000);
       }
     } catch (error) {
       console.error('Error sending message:', error);

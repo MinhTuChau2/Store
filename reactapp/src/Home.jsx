@@ -36,26 +36,26 @@ const Home = () => {
       <img src={removeBgImage} alt="Home" className="home-image" />
 
       <div className="product-container">
-      <div className="book-slider">
-  <div className="antenna-bulb"></div> {/* Antenna bulb */}
-  <Slider {...sliderSettings}>
-    {products.map((product) => (
-      <div key={product.id} className="product">
-        <video
-          src={product.video} // Assuming video URLs are stored in `product.video`
-          controls
-          className="product-video"
-          alt={product.name}
-        >
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    ))}
-  </Slider>
-</div>
-
-
-      
+        <div className="book-slider">
+          <div className="antenna-bulb"></div> {/* Antenna bulb */}
+          <Slider {...sliderSettings}>
+            {products.map((product, index) => (
+              <div key={index} className="product">
+                {/* Each iframe in its own slide */}
+                <iframe
+                  width="560"
+                  height="315"
+                  src={`https://www.youtube.com/embed/${index === 0 ? 'Ujb20kyR6So?si=Pxe-SyE5kUnTpEXh' : 'KuiwsY5smfU?si=MHOKvku8yxXhRSFf'}`}
+                  title={`YouTube video player ${index}`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            ))}
+          </Slider>
+        </div>
       </div>
     </div>
   );

@@ -8,5 +8,6 @@ urlpatterns = [
     path('', home),
     path('product/',include('api.product.urls')),
     path('orders/',include('api.orders.urls')),
+    path('contact/', include('api.contact.urls'))
 ]
 
